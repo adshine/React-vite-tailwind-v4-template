@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# UI Component Creation Guidelines
+
+## Check shadcn/ui First
+
+Before creating any new UI component, always:
+
+1. **Check shadcn/ui documentation** first to see if the component already exists
+2. **Use existing shadcn/ui components** when available rather than building from scratch
+3. **Follow the established pattern** seen in existing components like [button.tsx](mdc:src/components/ui/button.tsx)
+
+## Component Standards
+
+When working with UI components:
+
+- Use **class-variance-authority (cva)** for variant management
+- Follow the **shadcn/ui component structure** and conventions
+- Maintain consistency with existing components in `src/components/ui/`
+- Use **Radix UI primitives** when appropriate
+- Ensure proper **TypeScript typing** with VariantProps
+- Include proper **accessibility** attributes and focus management
+
+## Installation Process
+
+If a shadcn/ui component is needed but not yet installed:
+
+1. **Use the correct CLI command**: `bunx shadcn@latest add [component-name]` 
+   - Note: We use `bunx` instead of `npx` since this project uses bun as the package manager
+   - The old `shadcn-ui` package is deprecated
+2. **Handle React 19 dependency issues** if prompted:
+   - Choose `Use --force` option when prompted
+   - React 19 may cause peer dependency warnings but generally works fine
+3. **Always install components via CLI** rather than manually copying code
+   - This ensures proper dependencies are installed with bun
+   - Maintains consistency with project configuration  
+   - Gets the most up-to-date component versions
+4. **For manual dependency installation**: Use `bun add [package-name]` instead of `npm install`
+5. **Customize components** as needed while maintaining the base structure
+6. **Verify the component** follows the same patterns as existing components
+
+## Common Commands
+
+- `bunx shadcn@latest add dropdown-menu` (not `dropdown`)
+- `bunx shadcn@latest add dialog`
+- `bunx shadcn@latest add popover`
+- `bunx shadcn@latest add sheet`
+- `bun add [package-name]` for manual dependency installation
+- `bun install` to install all dependencies
+
+This approach ensures consistency, reduces development time, and maintains high-quality accessible components throughout the project.
